@@ -1,0 +1,27 @@
+﻿@using CarShop.Models
+@model IEnumerable<Car>
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AllCars</title>
+</head>
+<body>
+    <h2>All Cars</h2>
+    @{
+		foreach (var car in Model)
+		{
+        <div>
+            <h2>Model: @car.Name</h2>
+			<p>Price: @car.Price.ToString("c")</p>
+        </div>
+		}
+    }
+</body>
+</html>
