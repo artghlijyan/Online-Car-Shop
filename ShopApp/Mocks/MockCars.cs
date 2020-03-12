@@ -3,11 +3,10 @@ using CarShop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CarShop.Mocks
 {
-    class MockCars : ICars
+    public class MockCars : ICars
     {
         private readonly ICarCategory _carCategory = new MockCategory();
 
@@ -22,7 +21,7 @@ namespace CarShop.Mocks
                     new Car
                     {
                         Name = "Tesla Model S",
-                        Image = "https://images.app.goo.gl/CX3KsFscjq42YjYo6",
+                        Image = "/img/mrbean.jpg",
                         Price = 45000,
                         IsFavorite = true,
                         IsAvailable = true,
@@ -32,7 +31,7 @@ namespace CarShop.Mocks
                     new Car
                     {
                         Name = "Nissan SkyLine r34",
-                        Image = "https://images.app.goo.gl/9Nyr8RBY2Ag88ngo8",
+                        Image = "/img/nissanr34.jpg",
                         Price = 120000,
                         IsFavorite = true,
                         IsAvailable = true,
@@ -42,7 +41,7 @@ namespace CarShop.Mocks
                     new Car
                     {
                         Name = "Mini Cooper",
-                        Image = "https://images.app.goo.gl/aTP1oz6GjdrwnFdDA",
+                        Image = "/img/teslas.jpg",
                         Price = 28000,
                         IsFavorite = true,
                         IsAvailable = true,

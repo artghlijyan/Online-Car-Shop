@@ -1,13 +1,10 @@
 ﻿using CarShop.Interfaces;
 using CarShop.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CarShop.Mocks
 {
-    class MockCategory : ICarCategory
+    public class MockCategory : ICarCategory
     {
         public IEnumerable<Category> AllCategories
         {

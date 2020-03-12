@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CarShop.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CarShop.ViewModels;
 
 namespace CarShop.Controllers
 {
@@ -20,8 +17,10 @@ namespace CarShop.Controllers
 
         public ViewResult AllCars()
         {
-            var cars = _allCars.Cars;
-            return View(cars);
+            AllCarsViewModel obj = new AllCarsViewModel();
+            obj.AllCars = _allCars.Cars;
+            obj.currCategory = "All Type Cars";
+            return View(obj);
         }
     }
 }
