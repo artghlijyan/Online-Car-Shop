@@ -19,7 +19,7 @@ namespace CarShop.Controllers
         {
             AllCarsViewModel obj = new AllCarsViewModel();
             obj.AllCars = _allCars.Cars;
-            obj.currCategory = "All Type Cars";
+            obj.CurrCategory = "All Type Cars";
             return View(obj);
         }
     }

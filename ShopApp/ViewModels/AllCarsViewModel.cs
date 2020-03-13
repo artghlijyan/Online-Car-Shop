@@ -7,6 +7,6 @@ namespace CarShop.ViewModels
     {
         public IEnumerable<Car> AllCars { get; set; }
 
-        public string currCategory { get; set; }
+        public string CurrCategory { get; set; }
     }
 }

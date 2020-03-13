@@ -21,7 +21,7 @@ namespace CarShop.Mocks
                     new Car
                     {
                         Name = "Tesla Model S",
-                        Image = "/img/mrbean.jpg",
+                        Image = "/img/teslas.jpg",
                         Price = 45000,
                         IsFavorite = true,
                         IsAvailable = true,
@@ -41,7 +41,7 @@ namespace CarShop.Mocks
                     new Car
                     {
                         Name = "Mini Cooper",
-                        Image = "/img/teslas.jpg",
+                        Image = "/img/mrbean.jpg",
                         Price = 28000,
                         IsFavorite = true,
                         IsAvailable = true,
