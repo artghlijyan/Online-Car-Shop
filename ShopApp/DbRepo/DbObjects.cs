@@ -1,6 +1,4 @@
 ﻿using CarShop.Models;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,54 +8,48 @@ namespace CarShop.DbRepo
     {
         private static Dictionary<string, Category> categories;
 
-        public static void Initialize(IApplicationBuilder app)
+        public static void Initialize(AppDbContext context)
         {
-            AppDbContext context;
-
-            using (var scope = app.ApplicationServices.CreateScope())
+            if (!context.Category.Any())
             {
-                context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-
-                if (!context.Category.Any())
-                {
-                    context.Category.AddRange(Categories.Select(c => c.Value));
-                }
-
-                if (!context.Car.Any())
-                {
-                    new Car
-                    {
-                        Name = "Tesla Model S",
-                        Image = "/img/teslas.jpg",
-                        Price = 45000,
-                        IsFavorite = true,
-                        IsAvailable = true,
-                        Category = Categories["Electric Cars"]
-                    };
-
-                    new Car
-                    {
-                        Name = "Nissan SkyLine r34",
-                        Image = "/img/nissanr34.jpg",
-                        Price = 120000,
-                        IsFavorite = true,
-                        IsAvailable = true,
-                        Category = Categories["Sport Cars"]
-                    };
-
-                    new Car
-                    {
-                        Name = "Mini Cooper",
-                        Image = "/img/mrbean.jpg",
-                        Price = 28000,
-                        IsFavorite = true,
-                        IsAvailable = true,
-                        Category = Categories["Classic Cars"]
-                    };
-                }
-
-                context.SaveChanges();
+                context.Category.AddRange(Categories.Select(c => c.Value));
             }
+
+            if (!context.Car.Any())
+            {
+                context.AddRange(
+                new Car
+                {
+                    Name = "Tesla Model S",
+                    Image = "/img/teslas.jpg",
+                    Price = 45000,
+                    IsFavorite = true,
+                    IsAvailable = true,
+                    Category = Categories["Electric Cars"]
+                },
+
+                new Car
+                {
+                    Name = "Nissan SkyLine r34",
+                    Image = "/img/nissanr34.jpg",
+                    Price = 120000,
+                    IsFavorite = true,
+                    IsAvailable = true,
+                    Category = Categories["Sport Cars"]
+                },
+
+                new Car
+                {
+                    Name = "Mini Cooper",
+                    Image = "/img/mrbean.jpg",
+                    Price = 28000,
+                    IsFavorite = true,
+                    IsAvailable = true,
+                    Category = Categories["Classic Cars"]
+                });
+            }
+
+            context.SaveChanges();
         }
 
         public static Dictionary<string, Category> Categories
@@ -71,7 +63,7 @@ namespace CarShop.DbRepo
                     new Category
                     {
                         categoryName = "Electric Cars",
-                        description = "Cars On Elektrik Engine"
+                        description = "Cars On Elektric Engine"
                     },
 
                     new Category

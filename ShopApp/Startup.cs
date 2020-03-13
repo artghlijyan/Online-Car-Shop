@@ -40,7 +40,11 @@ namespace CarShop
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
-            DbObjects.Initialize(app);
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                AppDbContext context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                DbObjects.Initialize(context);
+            }
         }
     }
 }

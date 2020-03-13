@@ -5,6 +5,6 @@ namespace CarShop.Interfaces
 {
     public interface ICategory
     {
-        IEnumerable<Category> AllCategories { get; }
+        IEnumerable<Category> AllCategories  { get; }
     }
 }
