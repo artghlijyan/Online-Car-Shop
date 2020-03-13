@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CarShop.Interfaces;
-using CarShop.Mocks;
 using Microsoft.Extensions.Configuration;
 using CarShop.DbRepo;
 using CarShop.DbRepo.Repositories;
@@ -40,6 +39,8 @@ namespace CarShop
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
+
+            DbObjects.Initialize(app);
         }
     }
 }

@@ -1,23 +1,20 @@
 ﻿using CarShop.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CarShop.DbRepo
 {
-    public class DbHelper
+    public class DbObjects
     {
         private static Dictionary<string, Category> categories;
 
-
-        public static void Initialize(IApplicationBuilder builder)
+        public static void Initialize(IApplicationBuilder app)
         {
             AppDbContext context;
 
-            using (var scope = builder.ApplicationServices.CreateScope())
+            using (var scope = app.ApplicationServices.CreateScope())
             {
                 context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
@@ -67,7 +64,6 @@ namespace CarShop.DbRepo
         {
             get
             {
-
                 if (categories is null)
                 {
                     var list = new Category[]
