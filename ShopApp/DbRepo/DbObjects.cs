@@ -55,9 +55,9 @@ namespace CarShop.DbRepo
                         Category = Categories["Classic Cars"]
                     };
                 }
-            }
 
-            context.SaveChanges();
+                context.SaveChanges();
+            }
         }
 
         public static Dictionary<string, Category> Categories
