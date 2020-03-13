@@ -6,6 +6,7 @@ using CarShop.Interfaces;
 using CarShop.Mocks;
 using Microsoft.Extensions.Configuration;
 using CarShop.DbRepo;
+using CarShop.DbRepo.Repositories;
 
 namespace CarShop
 {
@@ -14,7 +15,7 @@ namespace CarShop
     {
         private IConfigurationRoot _confString;
 
-        public Startup(IHostingEnvironment env)
+        public Startup(IWebHostEnvironment env)
         {
             _confString = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
@@ -28,8 +29,8 @@ namespace CarShop
             {
                 op.UseSqlServer(_confString.GetConnectionString("DefaultConnection"));
             });
-            services.AddTransient<ICars, MockCars>();
-            services.AddTransient<ICarCategory, MockCategory>();
+            services.AddTransient<ICars, CarRepo>();
+            services.AddTransient<ICategory, CategoryRepo>();
             services.AddMvc(p => p.EnableEndpointRouting = false);
         }
 

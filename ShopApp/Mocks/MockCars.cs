@@ -8,7 +8,7 @@ namespace CarShop.Mocks
 {
     public class MockCars : ICars
     {
-        private readonly ICarCategory _carCategory = new MockCategory();
+        private readonly ICategory _carCategory = new MockCategory();
 
         public IEnumerable<Car> FavoriteCars { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using CarShop.Models;
+﻿using CarShop.DbRepo;
+using CarShop.Models;
 using System.Collections.Generic;
 
 namespace CarShop.Interfaces
@@ -7,7 +8,7 @@ namespace CarShop.Interfaces
     {
         IEnumerable<Car> Cars { get; }
 
-        IEnumerable<Car> FavoriteCars { get; set; }
+        IEnumerable<Car> FavoriteCars { get; }
 
         Car GetCar(int carId);
     }

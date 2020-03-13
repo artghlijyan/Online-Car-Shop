@@ -7,9 +7,9 @@ namespace CarShop.Controllers
     public class CarsController : Controller
     {
         private readonly ICars _allCars;
-        private readonly ICarCategory _carCategory;
+        private readonly ICategory _carCategory;
 
-        public CarsController(ICars allCars, ICarCategory carCategory)
+        public CarsController(ICars allCars, ICategory carCategory)
         {
             _allCars = allCars;
             _carCategory = carCategory;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CarShop.Interfaces
 {
-    public interface ICarCategory
+    public interface ICategory
     {
         IEnumerable<Category> AllCategories { get; }
     }
