@@ -10,12 +10,12 @@ namespace CarShop.DbRepo
 
         public static void Initialize(AppDbContext context)
         {
-            if (!context.Category.Any())
+            if (!context.Categories.Any())
             {
-                context.Category.AddRange(Categories.Select(c => c.Value));
+                context.Categories.AddRange(Categories.Select(c => c.Value));
             }
 
-            if (!context.Car.Any())
+            if (!context.Cars.Any())
             {
                 context.AddRange(
                 new Car

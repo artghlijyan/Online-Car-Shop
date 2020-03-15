@@ -6,6 +6,8 @@ using CarShop.Interfaces;
 using Microsoft.Extensions.Configuration;
 using CarShop.DbRepo;
 using CarShop.DbRepo.Repositories;
+using Microsoft.AspNetCore.Http;
+using CarShop.Models;
 
 namespace CarShop
 {
@@ -30,7 +32,11 @@ namespace CarShop
             });
             services.AddTransient<ICars, CarRepo>();
             services.AddTransient<ICategory, CategoryRepo>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShopCart.GetCart(sp));
             services.AddMvc(p => p.EnableEndpointRouting = false);
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -38,6 +44,7 @@ namespace CarShop
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvcWithDefaultRoute();
 
             using (var scope = app.ApplicationServices.CreateScope())

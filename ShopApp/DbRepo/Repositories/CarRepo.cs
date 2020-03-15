@@ -9,20 +9,20 @@ namespace CarShop.DbRepo.Repositories
 {
     public class CarRepo : ICars
     {
-        private readonly AppDbContext appDbContext;
+        private readonly AppDbContext _dbContext;
 
         public CarRepo(AppDbContext appDbContext)
         {
-            this.appDbContext = appDbContext;
+            this._dbContext = appDbContext;
         }
 
         public IEnumerable<Car> Cars => 
-            appDbContext.Car.Include(c => c.Category);
+            _dbContext.Cars.Include(c => c.Category);
 
         public IEnumerable<Car> FavoriteCars => 
-            appDbContext.Car.Where(p => p.IsFavorite).Include(c => c.Category);
+            _dbContext.Cars.Where(p => p.IsFavorite).Include(c => c.Category);
 
         public Car GetCar(int carId) =>
-            appDbContext.Car.FirstOrDefault(p => p.Id == carId);
+            _dbContext.Cars.FirstOrDefault(p => p.Id == carId);
     }
 }

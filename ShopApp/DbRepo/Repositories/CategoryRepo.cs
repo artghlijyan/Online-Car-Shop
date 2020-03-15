@@ -15,6 +15,6 @@ namespace CarShop.DbRepo.Repositories
             this.appDbContext = appDbContext;
         }
 
-        public IEnumerable<Category> AllCategories => appDbContext.Category;
+        public IEnumerable<Category> AllCategories => appDbContext.Categories;
     }
 }
