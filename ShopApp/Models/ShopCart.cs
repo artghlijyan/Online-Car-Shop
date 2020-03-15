@@ -31,7 +31,7 @@ namespace CarShop.Models
             return new ShopCart(context) { ShopCartId = shopCartId };
         }
 
-        public void AddToCart(Car car, int amount)
+        public void AddToCart(Car car)
         {
             this._dbContext.ShopCartItems.Add(
                 new ShopCartItem
@@ -44,7 +44,7 @@ namespace CarShop.Models
             _dbContext.SaveChanges();
         }
 
-        public List<ShopCartItem> GetSjopItems()
+        public List<ShopCartItem> GetShopItems()
         {
             return _dbContext.ShopCartItems.Where(c => c.ShopCartId == ShopCartId).Include(s => s.Car).ToList();
         }
