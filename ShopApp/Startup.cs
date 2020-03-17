@@ -11,7 +11,7 @@ using CarShop.Models;
 
 namespace CarShop
 {
-    //https://localhost:44308/cars/allcars use this link
+    //https://localhost:44308/cars/carslist use this link
     //https://localhost:44308/shopcart/index use this link
     public class Startup
     {

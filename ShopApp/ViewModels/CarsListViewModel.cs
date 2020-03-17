@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace CarShop.ViewModels
 {
-    public class AllCarsViewModel
+    public class CarsListViewModel
     {
-        public IEnumerable<Car> AllCars { get; set; }
+        public IEnumerable<Car> AllCarsList { get; set; }
 
         public string CurrCategory { get; set; }
     }

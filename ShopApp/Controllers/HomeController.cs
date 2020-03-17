@@ -19,9 +19,9 @@ namespace CarShop.Controllers
 
         public ViewResult Index()
         {
-            var homeCars = new HomeViewModel()
+            HomeViewModel homeCars = new HomeViewModel()
             {
-                favCars = _allCars.FavoriteCars
+                FavCars = _allCars.FavoriteCars
             };
             return View(homeCars);
         }

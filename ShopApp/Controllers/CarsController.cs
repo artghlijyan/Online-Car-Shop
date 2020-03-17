@@ -15,12 +15,14 @@ namespace CarShop.Controllers
             _carCategory = carCategory;
         }
 
-        public ViewResult AllCars()
+        public ViewResult CarsList()
         {
-            AllCarsViewModel obj = new AllCarsViewModel();
-            obj.AllCars = _allCars.Cars;
-            obj.CurrCategory = "All Type Cars";
-            return View(obj);
+            CarsListViewModel cars = new CarsListViewModel
+            {
+                AllCarsList = _allCars.Cars,
+                CurrCategory = "All Type Cars"
+            };
+            return View(cars);
         }
     }
 }

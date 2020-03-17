@@ -8,6 +8,6 @@ namespace CarShop.ViewModels
 {
     public class HomeViewModel
     {
-        public IEnumerable<Car> favCars { get; set; }
+        public IEnumerable<Car> FavCars { get; set; }
     }
 }
