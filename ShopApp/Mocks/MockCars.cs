@@ -23,7 +23,7 @@ namespace CarShop.Mocks
                         Name = "Tesla Model S",
                         Image = "/img/teslas.jpg",
                         Price = 45000,
-                        IsFavorite = true,
+                        IsFavorite = false,
                         IsAvailable = true,
                         Category = _carCategory.AllCategories.Single(p => p.categoryName == "Electric Cars")
                     },
@@ -43,7 +43,7 @@ namespace CarShop.Mocks
                         Name = "Mini Cooper",
                         Image = "/img/mrbean.jpg",
                         Price = 28000,
-                        IsFavorite = true,
+                        IsFavorite = false,
                         IsAvailable = true,
                         Category = _carCategory.AllCategories.Single(p => p.categoryName == "Classic Cars")
                     }

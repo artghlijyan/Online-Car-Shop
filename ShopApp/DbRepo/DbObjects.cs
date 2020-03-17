@@ -23,7 +23,7 @@ namespace CarShop.DbRepo
                     Name = "Tesla Model S",
                     Image = "/img/teslas.jpg",
                     Price = 45000,
-                    IsFavorite = true,
+                    IsFavorite = false,
                     IsAvailable = true,
                     Category = Categories["Electric Cars"]
                 },
@@ -43,7 +43,7 @@ namespace CarShop.DbRepo
                     Name = "Mini Cooper",
                     Image = "/img/mrbean.jpg",
                     Price = 28000,
-                    IsFavorite = true,
+                    IsFavorite = false,
                     IsAvailable = true,
                     Category = Categories["Classic Cars"]
                 });
@@ -63,13 +63,13 @@ namespace CarShop.DbRepo
                     new Category
                     {
                         categoryName = "Electric Cars",
-                        description = "Cars On Elektric Engine"
+                        description = "Cars on Electric Engine"
                     },
 
                     new Category
                     {
                         categoryName = "Classic Cars",
-                        description = "Cars On Fuel Engine"
+                        description = "Cars nn Fuel Engine"
                     },
 
                     new Category
