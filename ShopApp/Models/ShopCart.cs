@@ -13,6 +13,7 @@ namespace CarShop.Models
         private readonly AppDbContext _dbContext;
 
         public string ShopCartId { get; set; }
+
         public List<ShopCartItem> ListShopItems { get; set; }
 
         public ShopCart(AppDbContext dbContext)

@@ -35,6 +35,7 @@ namespace CarShop
 
             services.AddTransient<ICars, CarRepo>();
             services.AddTransient<ICategory, CategoryRepo>();
+            services.AddTransient<IAllOrders, OrderRepo>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShopCart.GetCart(sp));
             services.AddMvc(p => p.EnableEndpointRouting = false);

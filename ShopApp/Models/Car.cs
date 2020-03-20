@@ -12,7 +12,7 @@
 
         public string Image { get; set; }
 
-        public int Price { get; set; }
+        public uint Price { get; set; }
 
         public bool IsFavorite { get; set; }
 
