@@ -8,6 +8,7 @@ using CarShop.DbRepo;
 using CarShop.DbRepo.Repositories;
 using Microsoft.AspNetCore.Http;
 using CarShop.Models;
+using Microsoft.Extensions.Hosting;
 
 namespace CarShop
 {
@@ -31,6 +32,7 @@ namespace CarShop
             {
                 op.UseSqlServer(_confString.GetConnectionString("DefaultConnection"));
             });
+
             services.AddTransient<ICars, CarRepo>();
             services.AddTransient<ICategory, CategoryRepo>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -42,11 +44,23 @@ namespace CarShop
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
+            }
+
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(name: "categoryFilter", template: "Car/{action}/{category?}",
+                    defaults: new { Controller = "Car", action = "CarsList" });
+            });
 
             using (var scope = app.ApplicationServices.CreateScope())
             {

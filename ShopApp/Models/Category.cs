@@ -6,9 +6,9 @@ namespace CarShop.Models
     {
         public int Id { get; set; }
 
-        public string categoryName { get; set; }
+        public string CategoryName { get; set; }
 
-        public string description { get; set; }
+        public string Description { get; set; }
 
         public List<Car> Cars { get; set; }
     }

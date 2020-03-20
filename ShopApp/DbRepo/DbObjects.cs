@@ -62,20 +62,20 @@ namespace CarShop.DbRepo
                     {
                     new Category
                     {
-                        categoryName = "Electric Cars",
-                        description = "Cars on Electric Engine"
+                        CategoryName = "Electric Cars",
+                        Description = "Cars on Electric Engine"
                     },
 
                     new Category
                     {
-                        categoryName = "Classic Cars",
-                        description = "Cars nn Fuel Engine"
+                        CategoryName = "Classic Cars",
+                        Description = "Cars nn Fuel Engine"
                     },
 
                     new Category
                     {
-                        categoryName = "Sport Cars",
-                        description = "Sport Cars"
+                        CategoryName = "Sport Cars",
+                        Description = "Sport Cars"
                     }
                     };
 
@@ -83,7 +83,7 @@ namespace CarShop.DbRepo
 
                     foreach (var item in list)
                     {
-                        categories.Add(item.categoryName, item);
+                        categories.Add(item.CategoryName, item);
                     }
                 }
 

@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CarShop.Interfaces;
 using CarShop.ViewModels;
+using System.Collections;
+using CarShop.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace CarShop.Controllers
 {
@@ -15,14 +20,41 @@ namespace CarShop.Controllers
             _carCategory = carCategory;
         }
 
-        public ViewResult CarsList()
+        [Route("Cars/CarsList")]
+        [Route("Cars/CarsList/{category}")]
+        public ViewResult CarsList(string category)
         {
-            CarsListViewModel cars = new CarsListViewModel
+            IEnumerable<Car> cars = null;
+            string curCat = string.Empty;
+
+            if (string.IsNullOrEmpty(category))
             {
-                AllCarsList = _allCars.Cars,
-                CurrCategory = "All Type Cars"
+                cars = _allCars.Cars.OrderBy(c => c.Id);
+            }
+            else if (string.Equals("electric", category, StringComparison.OrdinalIgnoreCase))
+            {
+                cars = _allCars.Cars.Where(c => c.Category.CategoryName.Equals("Electric Cars")).OrderBy(c => c.Id);
+                curCat = "Electric";
+            }
+            else if (string.Equals("classic", category, StringComparison.OrdinalIgnoreCase))
+            {
+                cars = _allCars.Cars.Where(c => c.Category.CategoryName.Equals("Classic Cars")).OrderBy(c => c.Id);
+                curCat = "Classic";
+            }
+            else
+            {
+                cars = _allCars.Cars.Where(c => c.Category.CategoryName.Equals("Sport Cars")).OrderBy(c => c.Id);
+                curCat = "Sport";
+            }
+
+
+            CarsListViewModel carObj = new CarsListViewModel
+            {
+                AllCarsList = cars,
+                CurrCategory = curCat
             };
-            return View(cars);
+
+            return View(carObj);
         }
     }
 }

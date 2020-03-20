@@ -14,20 +14,20 @@ namespace CarShop.Mocks
                 {
                     new Category
                     {
-                        categoryName = "Electric Cars",
-                        description = "Cars On Elektrik Engine"
+                        CategoryName = "Electric Cars",
+                        Description = "Cars On Elektrik Engine"
                     },
 
                     new Category
                     {
-                        categoryName = "Classic Cars",
-                        description = "Cars On Fuel Engine"
+                        CategoryName = "Classic Cars",
+                        Description = "Cars On Fuel Engine"
                     },
 
                     new Category
                     {
-                        categoryName = "Sport Cars",
-                        description = "Sport Cars"
+                        CategoryName = "Sport Cars",
+                        Description = "Sport Cars"
                     }
                 };
             }

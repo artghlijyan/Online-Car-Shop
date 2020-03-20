@@ -25,7 +25,7 @@ namespace CarShop.Mocks
                         Price = 45000,
                         IsFavorite = false,
                         IsAvailable = true,
-                        Category = _carCategory.AllCategories.Single(p => p.categoryName == "Electric Cars")
+                        Category = _carCategory.AllCategories.Single(p => p.CategoryName == "Electric Cars")
                     },
                 
                     new Car
@@ -35,7 +35,7 @@ namespace CarShop.Mocks
                         Price = 120000,
                         IsFavorite = true,
                         IsAvailable = true,
-                        Category = _carCategory.AllCategories.Single(p => p.categoryName == "Sport Cars")
+                        Category = _carCategory.AllCategories.Single(p => p.CategoryName == "Sport Cars")
                     },
 
                     new Car
@@ -45,7 +45,7 @@ namespace CarShop.Mocks
                         Price = 28000,
                         IsFavorite = false,
                         IsAvailable = true,
-                        Category = _carCategory.AllCategories.Single(p => p.categoryName == "Classic Cars")
+                        Category = _carCategory.AllCategories.Single(p => p.CategoryName == "Classic Cars")
                     }
                 };
             }

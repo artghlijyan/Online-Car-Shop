@@ -23,6 +23,7 @@ namespace CarShop.Controllers
             {
                 FavCars = _allCars.FavoriteCars
             };
+
             return View(homeCars);
         }
     }
